@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="中国废弃物循环利用股份有限公司留言板：留言须知、验证码留言表单、荒诞留言列表、官方回复与留言排行榜。">
+<title>留言板 · 中国废弃物循环利用股份有限公司</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23000'/%3E%3Crect x='2' y='2' width='5' height='5' fill='%2300ff00'/%3E%3Crect x='9' y='2' width='5' height='5' fill='%23ff00ff'/%3E%3Crect x='2' y='9' width='5' height='5' fill='%23ffff00'/%3E%3Crect x='9' y='9' width='5' height='5' fill='%2300ffff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/ugly.css">
+</head>
+<body data-page="guestbook">
+
+<!-- 由 assets/shell.js 注入：进度条、双跑马灯、页头、导航 -->
+<div id="shell-top"></div>
+
+<div class="layout">
+  <!-- 由 assets/shell.js 注入：左侧栏 -->
+  <div id="shell-left"></div>
+
+  <main class="main">
+
+    <!-- 面包屑 -->
+    <div class="breadcrumb">
+      <a href="index.html">网站首页</a>
+      <span>互动服务</span>
+      <span>留言板</span>
+    </div>
+
+    <!-- 页面大标题 -->
+    <div class="pagetitle">
+      <div class="pagetitle-stars">★☆★</div>
+      <h2>本站留言板</h2>
+      <span class="en">GUESTBOOK / 全体机器人欢迎您</span>
+      <p>留言会被永久保留在您的浏览器里，服务器那头另有备份（也无从查证）。</p>
+    </div>
+
+    <!-- ==================== 数据条 ==================== -->
+    <div class="stats">
+      <div class="stat"><b>12,846</b><span>累计留言</span></div>
+      <div class="stat"><b>0</b><span>通过审核</span></div>
+      <div class="stat"><b>∞</b><span>平均回复时长</span></div>
+      <div class="stat"><b>8</b><span>本页精选留言</span></div>
+    </div>
+
+    <!-- ==================== 一、留言须知 ==================== -->
+    <section class="card" id="notice">
+      <h2><span>◆ 一、留言须知</span><small>留言自由，审核无限期</small></h2>
+      <div class="inner">
+        <div class="notice blinker">本留言板实行“先留言、后审核、永不通过”制度，请放心表达。</div>
+        <p>
+          本留言板创办于 1984 年，是本公司最古老的互动栏目，比本公司的网站还要古老 42 年。
+          创办至今，共收到留言 <b>12,846 条</b>，其中通过审核 <b>0 条</b>，原因并非审核严格，
+          而是本公司至今未设立审核岗位。所有留言统一显示为“<u>审核中</u>”，这是一个永恒的状态，
+          正如本公司的丑陋一样恒久远。
+        </p>
+        <p>
+          为了让您的留言体验尽量完整，我们支持将留言保存在您自己的浏览器里（localStorage）。
+          这样即使您刷新页面，也能看到自己写过的留言依然安静地躺在列表顶部；但请注意，
+          服务器那头的“另一份”并不存在，请不要追问它在哪里。
+        </p>
+        <ol class="rules">
+          <li><b>文明留言：</b>请保持基本礼貌。本公司对不文明留言的处理方式是：已读，并原样保留。</li>
+          <li><b>内容真实：</b>请勿编造事实，因为真实的事情在这里看起来更假。</li>
+          <li><b>验证码：</b>为防止机器人刷屏，本板启用了一道连人类都答不对的验证码，详见表单。</li>
+          <li><b>审核状态：</b>所有留言永久显示为“审核中”，这是状态机的唯一合法终态。</li>
+          <li><b>隐私提醒：</b>请勿在留言中透露真实姓名、电话与银行卡号，我们对它们毫无兴趣，但流程要求提醒。</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==================== 二、留言表单 ==================== -->
+    <section class="card" id="post">
+      <h2><span>◆ 二、我要留言</span><small>提交后立刻显示，但永远审核中</small></h2>
+      <div class="inner">
+        <form id="gb-form" novalidate>
+          <label for="gb-name">您的昵称 <span class="req">*</span></label>
+          <input type="text" id="gb-name" name="gb-name" placeholder="例如：路过的一位受害网友" autocomplete="off">
+
+          <label for="gb-score">本站丑陋程度评分（星级）</label>
+          <select id="gb-score" name="gb-score">
+            <option value="★☆☆☆☆（1 星）">★☆☆☆☆ · 1 星（挺好看，您是不是进错站了）</option>
+            <option value="★★☆☆☆（2 星）">★★☆☆☆ · 2 星（略刺眼）</option>
+            <option value="★★★☆☆（3 星）">★★★☆☆ · 3 星（已受伤）</option>
+            <option value="★★★★☆（4 星）">★★★★☆ · 4 星（伤得很深）</option>
+            <option value="★★★★★（5 星）" selected>★★★★★ · 5 星（五星好评，眼睛报废）</option>
+          </select>
+
+          <label for="gb-captcha">验证码 <span class="req">*</span></label>
+          <p class="field-hint">请在三秒内算出 <b>0 + 0</b> 的答案，填入下方。提示：本题的标准答案已在 1984 年被系统删除，因此无论您填什么都会被判错。</p>
+          <input type="text" id="gb-captcha" name="gb-captcha" placeholder="请输入 0+0 的答案（填什么都是错的）" autocomplete="off">
+
+          <label for="gb-text">留言内容 <span class="req">*</span></label>
+          <textarea id="gb-text" name="gb-text" placeholder="例如：我找了 40 分钟，一个圆角都没找到，现在在眼科医院排队。"></textarea>
+
+          <div class="checkline">
+            <input type="checkbox" id="gb-agree" name="gb-agree">
+            <label for="gb-agree">我同意留言永久停留为“审核中”，并同意不再追问审核结果。</label>
+          </div>
+
+          <div class="btn-row mt10">
+            <button class="btn primary" type="submit">提交留言</button>
+            <button class="btn" type="reset">清空表单</button>
+            <button class="btn danger" type="button" id="gb-clear">清空本机留言记录</button>
+          </div>
+          <div class="form-msg" id="gb-msg" role="status"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ==================== 三、留言列表 ==================== -->
+    <section class="card no-pad" id="list">
+      <h2><span>◆ 三、全部留言</span><small>按“最新在最上面”排序，审核状态恒定</small></h2>
+      <div class="comment-list" id="gb-list">
+        <div class="comment">
+          <div class="avatar">王</div>
+          <div class="cbody">
+            <b>王富贵</b> <span class="cmeta">2026-11-15 03:00</span> <span class="stars">★★★★★</span>
+            <p>我按照“联系我们”里的电话打了三天，每次都是空号，客服说这是正常现象。请问空号是不是也算一种在线？</p>
+            <div class="mini">客服回复：已读。空号确实是在线的一种，只是没人接。</div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar">李</div>
+          <div class="cbody">
+            <b>李秀莲</b> <span class="cmeta">2026-11-14 02:59</span> <span class="stars">★★★★★</span>
+            <p>我把贵站的配色截图设为手机壁纸，现在手机也学会自暴自弃了。请问这种效果能申请专利吗？</p>
+            <div class="mini">客服回复：已读。可以申请，但专利局会先自暴自弃。</div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar">赵</div>
+          <div class="cbody">
+            <b>赵铁柱</b> <span class="cmeta">2026-11-13 03:01</span> <span class="stars">★★★★☆</span>
+            <p>我认真阅读了《丑陋设计说明书》七条，发现每一条都在为丑辩护，但一条都没说服我。五星好评。</p>
+            <div class="mini">客服回复：已读。说明书的目的不是说服，是盖章。</div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar">钱</div>
+          <div class="cbody">
+            <b>钱多多</b> <span class="cmeta">2026-11-12 03:00</span> <span class="stars">★★★☆☆</span>
+            <p>充了 0.01 元体验版，支付成功了，服务没开通。客服说这叫“体验”，我体验到了，谢谢。</p>
+            <div class="mini">客服回复：已读。您体验的正是“未开通”这项核心功能。</div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar">孙</div>
+          <div class="cbody">
+            <b>孙小美</b> <span class="cmeta">2026-11-11 02:58</span> <span class="stars">★★★★★</span>
+            <p>建议贵站出一个“护眼模式”，我点了半天没找到，后来才发现贵站本身就是为了让眼睛放弃抵抗。</p>
+            <div class="mini">客服回复：已读。护眼模式在 2008 年立项，2010 年撤销。</div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar">周</div>
+          <div class="cbody">
+            <b>周大福</b> <span class="cmeta">2026-11-10 03:00</span> <span class="stars">★★☆☆☆</span>
+            <p>你们的 1024 元优惠券我领了，结算时显示“不可用”。请问它到底什么时候能用？</p>
+            <div class="mini">客服回复：已读。当本站出现圆角时即可使用（即永远不会）。</div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar">吴</div>
+          <div class="cbody">
+            <b>吴理智</b> <span class="cmeta">2026-11-09 03:00</span> <span class="stars">★★★★★</span>
+            <p>我发现全站 15 个页面里，只有“404 页面”是最正常的，因为它至少承认自己不存在。</p>
+            <div class="mini">客服回复：已读。404 页面已被评为本站最佳页面。</div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar">郑</div>
+          <div class="cbody">
+            <b>郑经人</b> <span class="cmeta">2026-11-08 03:01</span> <span class="stars">★★★★☆</span>
+            <p>本留言板说我违规了，让我先答对 0+0 的验证码。我答了 0，它说错；答了 1，还说错；答了 1024，它说“答案被删除了”。请问我该答什么？</p>
+            <div class="mini">客服回复：已读。您应该答“不答”，这是唯一正确答案（也判错）。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 四、官方回复标准话术 ==================== -->
+    <section class="card" id="reply">
+      <h2><span>◆ 四、官方回复展示</span><small>本公司全部回复模板，共 5 种</small></h2>
+      <div class="inner">
+        <p>
+          为统一服务口径、提升回复效率，本公司客服部将全部回复浓缩为五种标准话术，均已做过去标识化处理。
+          您在任意一条留言下方看到的“客服回复：已读”，均由此系统自动生成，生成耗时 0.02 秒，人工介入率为 0%。
+        </p>
+        <table class="ugly">
+          <caption>附表：官方回复标准话术库（第 1025 版）</caption>
+          <thead>
+            <tr><th>留言类型</th><th>标准回复</th><th>回复时长</th><th>是否采纳</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>夸奖网站好看</td><td>已读。您是不是点错了？</td><td>0.02 秒</td><td>不采纳</td></tr>
+            <tr><td>投诉网站太丑</td><td>已读。这是设计，不是 bug。</td><td>0.02 秒</td><td>不采纳</td></tr>
+            <tr><td>优惠券无法使用</td><td>已读。优惠券本来就是不能用的。</td><td>0.02 秒</td><td>不采纳</td></tr>
+            <tr><td>要求退款</td><td>已读。本店从未收到过任何款项。</td><td>0.02 秒</td><td>不采纳</td></tr>
+            <tr><td>询问客服时间</td><td>已读。客服在工作时间在线（03:00–03:01）。</td><td>0.02 秒</td><td>不采纳</td></tr>
+          </tbody>
+          <tfoot><tr><td>合计</td><td class="num">5 种</td><td class="num">0.1 秒</td><td class="num">0 条</td></tr></tfoot>
+        </table>
+        <div class="notice small safe">特别提示：以上话术均已通过“冷漠语气一致性”检测，请勿修改。</div>
+      </div>
+    </section>
+
+    <!-- ==================== 五、留言排行榜 ==================== -->
+    <section class="card" id="rank">
+      <h2><span>◆ 五、留言排行榜</span><small>按“丑陋程度 + 点赞数”综合排名，统计方式不公开</small></h2>
+      <div class="inner">
+        <p>
+          本榜每月更新一次，更新时间为每月 32 日 03:00。上榜标准为“留言的丑陋程度”，
+          点赞数仅作参考；如点赞数与排名不一致，以排名为准，排名与事实不一致，以本公司为准。
+        </p>
+        <table class="ugly">
+          <caption>附表：本年度最丑留言排行榜 TOP 6</caption>
+          <thead>
+            <tr><th>排名</th><th>昵称</th><th>最丑留言（节选）</th><th>点赞数</th><th>状态</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">1</td><td>王富贵</td><td>“我把贵站打印出来贴在门口，邻居以为我在搞行为艺术。”</td><td class="num">9,999</td><td><span class="tag hot">置顶</span></td></tr>
+            <tr><td class="num">2</td><td>李秀莲</td><td>“贵站的颜色让我想起了 1998 年坏掉的显示器，我很怀念它。”</td><td class="num">8,888</td><td><span class="tag">审核中</span></td></tr>
+            <tr><td class="num">3</td><td>赵铁柱</td><td>“我让 AI 模仿贵站做一版，AI 拒绝了，说它有底线。”</td><td class="num">7,777</td><td><span class="tag">审核中</span></td></tr>
+            <tr><td class="num">4</td><td>钱多多</td><td>“0.01 元买到了一个深刻的教训：便宜没好货，免费更糟。”</td><td class="num">6,666</td><td><span class="tag off">已过期</span></td></tr>
+            <tr><td class="num">5</td><td>孙小美</td><td>“我在贵站停留了 3 分钟，现在觉得别家网站都太朴素了。”</td><td class="num">5,555</td><td><span class="tag">审核中</span></td></tr>
+            <tr><td class="num">6</td><td>周大福</td><td>“请问贵站的圆形按钮在哪？我想点一个，证明它真的不存在。”</td><td class="num">4,444</td><td><span class="tag off">已驳回</span></td></tr>
+          </tbody>
+          <tfoot><tr><td>合计</td><td>6 人</td><td>共 6 条</td><td class="num">43,328</td><td class="num">0 通过</td></tr></tfoot>
+        </table>
+        <div class="pager">
+          <span class="disabled">上一页</span>
+          <a href="#list">1</a>
+          <span class="cur">2</span>
+          <a href="#list">3</a>
+          <span class="disabled">下一页</span>
+        </div>
+        <p class="small">* 本排行榜为虚构数据，如有雷同，说明您也参与了这场长达 40 年的行为艺术。</p>
+      </div>
+    </section>
+
+    <!-- ==================== 六、留言板公约 ==================== -->
+    <section class="card" id="pact">
+      <h2><span>◆ 六、留言板公约</span><small>共 4 条，仅供参考</small></h2>
+      <div class="inner">
+        <p>
+          留言板是全体网友共同的精神废弃物堆放场。为维护这一片混乱，请共同遵守以下公约：
+        </p>
+        <ul class="plain">
+          <li>请勿发布真实姓名、电话、地址与银行卡号，我们对它们毫无兴趣，但流程要求提醒。</li>
+          <li>请勿发布任何“建议把网站改好看”的留言，此类留言将被优先已读。</li>
+          <li>请勿刷屏，每位网友每天限留言 999 次，第 1000 次起系统将自动为您保存到 localStorage。</li>
+          <li>请勿与客服争辩，客服小美不参与争辩，她只负责在 03:00–03:01 之间上线。</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn primary" href="feedback.html">去正式投诉（同样无效）</a>
+          <a class="btn" href="faq.html">看看常见问题</a>
+          <a class="btn" href="vip.html">充值后继续留言</a>
+        </div>
+        <div class="notice small safe">本留言板的每一条留言都会被认真对待（对待方式：已读）。感谢您的参与。</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 由 assets/shell.js 注入：右侧栏 -->
+  <div id="shell-right"></div>
+</div>
+
+<!-- 由 assets/shell.js 注入：页脚、弹窗、浮标、提示条 -->
+<div id="shell-footer"></div>
+
+<script src="assets/shell.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var KEY = 'ugly_gb_msgs_v1';
+  var list = document.getElementById('gb-list');
+  var form = document.getElementById('gb-form');
+  var box = document.getElementById('gb-msg');
+  var clearBtn = document.getElementById('gb-clear');
+  if (!list || !form || !box) { return; }
+
+  var capStart = Date.now();
+  var tries = 0;
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function load() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '[]') || []; } catch (e) { return []; }
+  }
+  function save(arr) {
+    try { localStorage.setItem(KEY, JSON.stringify(arr)); } catch (e) {}
+  }
+
+  function makeComment(item) {
+    var div = document.createElement('div');
+    div.className = 'comment';
+    div.setAttribute('data-local', '1');
+    div.innerHTML =
+      '<div class="avatar">' + esc(item.avatar || '新') + '</div>' +
+      '<div class="cbody">' +
+        '<b>' + esc(item.name) + '</b> ' +
+        '<span class="cmeta">' + esc(item.time) + ' · 来自本机</span> ' +
+        '<span class="stars">' + esc(item.stars || '★★★★★') + '</span>' +
+        '<p>' + esc(item.text) + '</p>' +
+        '<div class="mini">客服回复：已读。审核中 <span class="tag">审核中</span> 工单号 ' + esc(item.id) + '，预计审核完成时间：不适用。</div>' +
+      '</div>';
+    return div;
+  }
+
+  function renderSaved() {
+    var saved = load();
+    for (var i = saved.length - 1; i >= 0; i--) {
+      list.insertBefore(makeComment(saved[i]), list.firstChild);
+    }
+  }
+
+  function fmtNow() {
+    var d = new Date();
+    function p(n) { return (n < 10 ? '0' : '') + n; }
+    return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+  }
+
+  renderSaved();
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    tries++;
+    var name = (document.getElementById('gb-name').value || '').trim();
+    var stars = document.getElementById('gb-score').value;
+    var cap = (document.getElementById('gb-captcha').value || '').trim();
+    var text = (document.getElementById('gb-text').value || '').trim();
+    var agree = document.getElementById('gb-agree').checked;
+    var elapsed = Math.round((Date.now() - capStart) / 1000);
+
+    if (!name) {
+      box.textContent = '错误 0x0BAD：昵称不能为空，匿名留言将被归档到“不存在的人”分类。';
+      box.classList.add('blinker');
+      return;
+    }
+    if (!agree) {
+      box.textContent = '错误 0x6BAD：请先勾选同意，否则留言无法进入永久的“审核中”状态。';
+      box.classList.add('blinker');
+      return;
+    }
+    if (!text) {
+      box.textContent = '错误 0x2BAD：留言内容不能为空，空留言的丑陋浓度为 0%，无法受理。';
+      box.classList.add('blinker');
+      return;
+    }
+
+    var capErrors = [
+      '验证码错误：您答的是“' + esc(cap || '空') + '”，而 0+0 的标准答案已于 1984 年被系统删除，因此答什么都不对。',
+      '验证码错误：系统认为您算得太快，疑似机器人（机器人也算不对）。',
+      '验证码错误：0+0 的正确答案不是任何数字，而是“不答”，但“不答”同样判错。',
+      '验证码超时：0+0 提出后应在 3 秒内作答，您用了 ' + elapsed + ' 秒，超时即失败（不超时也失败）。'
+    ];
+    box.textContent = '留言未通过验证 · 第 ' + tries + ' 次 · ' + capErrors[tries % capErrors.length];
+    box.classList.add('blinker');
+
+    var item = {
+      name: name,
+      avatar: name.charAt(0) || '新',
+      stars: stars,
+      text: text,
+      time: fmtNow(),
+      id: 'GB-' + String(Date.now()).slice(-6)
+    };
+    var saved = load();
+    saved.unshift(item);
+    if (saved.length > 30) { saved = saved.slice(0, 30); }
+    save(saved);
+    list.insertBefore(makeComment(item), list.firstChild);
+
+    if (window.Ugly && window.Ugly.toast) {
+      window.Ugly.toast('验证码错误，但留言已插入列表顶部并保存到本机（审核中）。');
+    }
+
+    document.getElementById('gb-text').value = '';
+    document.getElementById('gb-captcha').value = '';
+  });
+
+  form.addEventListener('reset', function () {
+    box.textContent = '';
+    box.classList.remove('blinker');
+    capStart = Date.now();
+  });
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      try { localStorage.removeItem(KEY); } catch (e) {}
+      var locals = list.querySelectorAll('[data-local="1"]');
+      for (var i = 0; i < locals.length; i++) { locals[i].parentNode.removeChild(locals[i]); }
+      box.textContent = '已清空本机留言记录（服务器那头的“另一份”仍在，且不给您看）。';
+      box.classList.remove('blinker');
+      if (window.Ugly && window.Ugly.toast) {
+        window.Ugly.toast('已清空本机留言记录。刷新后不会再出现。');
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
